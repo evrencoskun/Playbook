@@ -51,10 +51,11 @@ class MainActivity : AppCompatActivity() {
         logErrors()
     }
 
+    // TODO: Include errors in any future analytics
     private fun logErrors() {
         viewModel.state.observe(this,
             Observer<State> { state ->
-                when (state) {
+                when(state) {
                     is State.Error -> Log.e(javaClass.simpleName, state.message)
                 }
             })
@@ -73,5 +74,3 @@ class MainActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 }
-
-
